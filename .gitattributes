@@ -55,3 +55,9 @@ saved_model/**/* filter=lfs diff=lfs merge=lfs -text
 *.webp filter=lfs diff=lfs merge=lfs -text
 maps/train/Wood.z01 filter=lfs diff=lfs merge=lfs -text
 maps/train/Ground.z01 filter=lfs diff=lfs merge=lfs -text
+scripts/hdri/DayEnvironmentHDRI015_8K-HDR.exr filter=lfs diff=lfs merge=lfs -text
+scripts/hdri/DaySkyHDRI037B_8K-HDR.exr filter=lfs diff=lfs merge=lfs -text
+scripts/hdri/IndoorEnvironmentHDRI003_8K-HDR.exr filter=lfs diff=lfs merge=lfs -text
+scripts/hdri/IndoorEnvironmentHDRI005_8K-HDR.exr filter=lfs diff=lfs merge=lfs -text
+scripts/hdri/studio_small_02_4k.exr filter=lfs diff=lfs merge=lfs -text
+scripts/render_ambient.blend filter=lfs diff=lfs merge=lfs -text
