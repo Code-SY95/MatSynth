@@ -80,9 +80,10 @@ presented as the length of the edge in centimeters (358).
 ## Citation
 
 ```
-@article{vecchio2023matsynth,
+@article{vecchio2024matsynth,
   title={MatSynth: A Modern PBR Materials Dataset},
   author={Vecchio, Giuseppe and Deschaintre, Valentin},
-  year={2023}
+  journal={arXiv preprint arXiv:2401.06056},
+  year={2024}
 }
 ```
