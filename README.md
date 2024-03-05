@@ -1,4 +1,6 @@
 ---
+homepage: https://gvecchio.com/matsynth/
+paperswithcode_id: matsynth
 task_categories:
 - image-to-image
 - unconditional-image-generation
@@ -14,6 +16,8 @@ tags:
 - rendering
 - svbrdf
 pretty_name: MatSynth
+size_categories:
+- 1K<n<10K
 ---
 
 # MatSynth
@@ -23,7 +27,9 @@ This dataset consists of over 4,000 ultra-high resolution, offering unparalleled
 
 Meticulously collected and curated, MatSynth is poised to drive innovation in material acquisition and generation applications, providing a rich resource for researchers, developers, and enthusiasts in computer graphics and related fields.
 
-## Dataset Details
+For further information, refer to our paper: ["MatSynth: A Modern PBR Materials Dataset"](https://arxiv.org/abs/2401.06056) available on arXiv.
+
+## 🔍 Dataset Details
 
 ### Dataset Description
 
@@ -37,17 +43,17 @@ Each material in the dataset comes with rich metadata, including information on 
 and, when available, descriptions and physical size. 
 This comprehensive metadata facilitates precise material selection and usage, catering to the specific needs of users.
 
-## Dataset Structure
+## 📂 Dataset Structure
  
 The MatSynth dataset is divided into two splits: the test split, containing 89 materials, and the train split, consisting of 3,980 materials. 
 To enhance accessibility and ease of navigation, each split is further organized into separate folders for each distinct category present in the dataset (Blends, Ceramic, Concrete, Fabric, Ground, Leather, Marble, Metal, Misc, Plastic, Plaster, Stone, Terracotta, Wood). 
 
-## Dataset Creation
+## 🔨 Dataset Creation
 
 The MatSynth dataset is designed to support modern, learning-based techniques for a variety of material-related tasks including, 
 but not limited to, material acquisition, material generation and synthetic data generation e.g. for retrieval or segmentation. 
 
-### Source Data
+### 🗃️ Source Data
 
 The MatSynth dataset is the result of an extensively collection of data from multiple online sources operating under the CC0 and CC-BY licensing framework. 
 This collection strategy allows to capture a broad spectrum of materials, 
@@ -63,7 +69,7 @@ Additionally, we discard blurry or low-quality materials (by visual inspection).
 The resulting dataset consists of 3736 unique materials which we augment by blending semantically compatible materials (e.g.: snow over ground). 
 In total, our dataset contains 4069 unique 4K materials.
 
-### Annotations
+### ✒️ Annotations
 
 The dataset is composed of material maps (Basecolor, Diffuse, Normal, Height, Roughness, Metallic, Specular and, when useful, opacity) 
 and associated renderings under varying environmental illuminations, and multi-scale crops.
@@ -77,13 +83,13 @@ licensing and a timestamps for eventual future versioning.
 For a subset of materials, when the information is available, we also provide the author name (387), text description (572) and a physical size, 
 presented as the length of the edge in centimeters (358). 
 
-## Citation
+## 📜 Citation
 
 ```
-@article{vecchio2024matsynth,
+@inproceedings{vecchio2023matsynth,
   title={MatSynth: A Modern PBR Materials Dataset},
   author={Vecchio, Giuseppe and Deschaintre, Valentin},
-  journal={arXiv preprint arXiv:2401.06056},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2024}
 }
 ```
