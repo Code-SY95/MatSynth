@@ -18,6 +18,7 @@ tags:
 pretty_name: MatSynth
 size_categories:
 - 1K<n<10K
+viewer: false
 ---
 
 # MatSynth
