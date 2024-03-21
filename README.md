@@ -30,6 +30,10 @@ Meticulously collected and curated, MatSynth is poised to drive innovation in ma
 
 For further information, refer to our paper: ["MatSynth: A Modern PBR Materials Dataset"](https://arxiv.org/abs/2401.06056) available on arXiv.
 
+<center>
+  <img src="https://gvecchio.com/matsynth/static/images/teaser.png" style="border-radius:15px; width:80%">
+</center>
+
 ## 🔍 Dataset Details
 
 ### Dataset Description
