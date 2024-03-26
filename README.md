@@ -92,10 +92,10 @@ dataset_info:
     dtype: image
   splits:
   - name: test
-    num_bytes: 6688789896.0
-    num_examples: 84
-  download_size: 6608046610
-  dataset_size: 6688789896.0
+    num_bytes: 7443637576.0
+    num_examples: 89
+  download_size: 7354318878
+  dataset_size: 7443637576.0
 configs:
 - config_name: default
   data_files:
