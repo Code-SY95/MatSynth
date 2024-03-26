@@ -1,13 +1,16 @@
 ---
-homepage: https://gvecchio.com/matsynth/
-paperswithcode_id: matsynth
+language:
+- en
+size_categories:
+- 1K<n<10K
 task_categories:
 - image-to-image
 - unconditional-image-generation
 - image-classification
 - text-to-image
-language:
-- en
+paperswithcode_id: matsynth
+pretty_name: MatSynth
+homepage: https://gvecchio.com/matsynth/
 tags:
 - materials
 - pbr
@@ -15,10 +18,89 @@ tags:
 - graphics
 - rendering
 - svbrdf
-pretty_name: MatSynth
-size_categories:
-- 1K<n<10K
 viewer: false
+dataset_info:
+  features:
+  - name: name
+    dtype: string
+  - name: category
+    dtype:
+      class_label:
+        names:
+          '0': ceramic
+          '1': concrete
+          '2': fabric
+          '3': ground
+          '4': leather
+          '5': marble
+          '6': metal
+          '7': misc
+          '8': plaster
+          '9': plastic
+          '10': stone
+          '11': terracotta
+          '12': wood
+  - name: metadata
+    struct:
+    - name: authors
+      sequence: string
+    - name: description
+      dtype: string
+    - name: height_factor
+      dtype: float32
+    - name: height_mean
+      dtype: float32
+    - name: license
+      dtype: string
+    - name: link
+      dtype: string
+    - name: maps
+      sequence: string
+    - name: method
+      dtype: string
+    - name: name
+      dtype: string
+    - name: physical_size
+      dtype: float32
+    - name: source
+      dtype: string
+    - name: stationary
+      dtype: bool
+    - name: tags
+      sequence: string
+    - name: version_date
+      dtype: string
+  - name: basecolor
+    dtype: image
+  - name: diffuse
+    dtype: image
+  - name: displacement
+    dtype: image
+  - name: height
+    dtype: image
+  - name: metallic
+    dtype: image
+  - name: normal
+    dtype: image
+  - name: opacity
+    dtype: image
+  - name: roughness
+    dtype: image
+  - name: specular
+    dtype: image
+  - name: blend_mask
+    dtype: image
+  splits:
+  - name: test
+    num_bytes: 6688789896.0
+    num_examples: 84
+  download_size: 6608046610
+  dataset_size: 6688789896.0
+configs:
+- config_name: default
+  data_files:
+  - split: test
+    path: data/test-*
 ---
 
 # MatSynth
