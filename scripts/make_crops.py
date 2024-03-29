@@ -48,7 +48,8 @@ def process_map(map, mat_dest):
         crop_i = 0
 
         if "normal" in map_name:
-            rot_img = rotate_normal_map(img, axis='z', angle_deg=rot_angle) # Sy: TypeError: rotate_normal_map() got an unexpected keyword argument 'axis'
+            # rot_img = rotate_normal_map(img, axis='z', angle_deg=rot_angle) # sy: TypeError: rotate_normal_map() got an unexpected keyword argument 'axis' => So I changed the code as below.
+            rot_img = rotate_normal_map(img, angle_deg=rot_angle)
             rot_img = TF.rotate(rot_img, rot_angle)
         else:
             rot_img = TF.rotate(img, rot_angle)
@@ -65,7 +66,9 @@ def process_map(map, mat_dest):
                 crop_dir = mat_dest / f"rot_{rot_angle:03d}_crop_{crop_i:03d}"
                 crop_dir.mkdir(parents=True, exist_ok=True)
 
-                crop = TF.resize(crop, (1024, 1024), antialias=True)
+                # crop = TF.resize(crop, (1024, 1024), antialias=True)
+                # sy: Resize croped map to 256, 256
+                crop = TF.resize(crop, (256, 256), antialias=True)
                 
                 if map_name in ["height", "displacement"]:
                     crop = crop.permute(1, 2, 0).cpu().numpy()
@@ -91,19 +94,21 @@ if __name__ == "__main__":
     for file in tqdm([x for x in source_dir.glob("**/basecolor.png")]):
         mat_dir = file.parent
 
-        name = mat_dir.stem
-        category = mat_dir.parent.stem
-        split = mat_dir.parent.parent.stem
+        name = mat_dir.stem # sy: material name
+        category = mat_dir.parent.stem # sy: folder category (Blends, ..)
+        split = mat_dir.parent.parent.stem # sy: train/test
 
-        mat_dest = dest_dir / split / category / name
+        mat_dest = dest_dir / split / category / name # sy: PosixPath
         mat_dest.mkdir(parents=True, exist_ok=True)
 
         thread = []
-        for map in mat_dir.glob("*.png"):
-            t = threading.Thread(target=process_map, args=(map, mat_dest))
-            t.start()
+        for map in mat_dir.glob("*.png"): # sy: map is the name of pbr map(: basecolor, normal, diffuse...)
+            # sy: I need BRDF map(diffuse, specular, roughness, normal). I can process the name of mpa like {map.name} is looks like 'normal.png'
+            if (map.name == 'diffuse.png' or map.name == 'normal.png' or map.name == 'roughness.png' or map.name == 'specular.png'): 
+                t = threading.Thread(target=process_map, args=(map, mat_dest))
+                t.start()
 
-            thread.append(t)
+                thread.append(t)
 
         for t in thread:
             t.join()
