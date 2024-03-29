@@ -9,6 +9,8 @@ import torchvision.transforms.functional as TF
 from PIL import Image
 from tqdm import tqdm
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 def rotate_normal_map(normal_map, angle_deg):
     angle_rad = angle_deg * (torch.pi / 180.0)
@@ -46,7 +48,7 @@ def process_map(map, mat_dest):
         crop_i = 0
 
         if "normal" in map_name:
-            rot_img = rotate_normal_map(img, axis='z', angle_deg=rot_angle)
+            rot_img = rotate_normal_map(img, axis='z', angle_deg=rot_angle) # Sy: TypeError: rotate_normal_map() got an unexpected keyword argument 'axis'
             rot_img = TF.rotate(rot_img, rot_angle)
         else:
             rot_img = TF.rotate(img, rot_angle)
